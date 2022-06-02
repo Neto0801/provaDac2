@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<head>
+	<title>Listagem</title>
+</head>
+<body>
+	<h:form id="lista">
+	<h:panelGroup>
+	<h:panelGroup>
+		<h:dataTable value="#{jogobean.listar}" var="c">
+		<h:column headertext="Nomes">
+			<h:outputText value="#{c.id}">
+			</h:outputText>
+			<h:column headerText="data"></h:column>
+			<h:outputText value="{#session,lastAcessedTime}">
+			<f:convertDateTime pattern="MM/dd/yyyy" type="date">
+			</f:convertDateTime>	
+			</h:outputText>
+		</h:column>
+		</h:dataTable>
+	</h:panelGroup>
+	</h:panelGroup>
+	</h:form>
+		<h:column>
+		<h:column>
+		<h:outputText value="#{c.v1"/>
+		<h:outputText value="."/>
+		<h:outputText value="#{c.v2"/>
+		<h:outputText value="."/>
+		</h:column>
+		</h:column>
+		<h:column headerText="Data de criação">
+			<h:outputText value="#{c.dataCriaçao"/>
+			
+		</h:column>
+		<h:column headerText="editar">
+		<h:commandButton value="editar" action="adicao"></h:commandButton>
+		<f:setPropertyActionListener value="#{c}" target="#{jogoBean.jogo"></f:setPropertyActionListener>
+		
+		<h:commandButton value="excluir" action="#jogoBean.excluir}" update="lista">
+		<f:setPropertyActionListener value="#{c}" target="#{jogoBean.jogo}"></f:setPropertyActionListener>
+		</h:commandButton>
+		<h:commandButton value="pares" type="button" onclick="PF{dig1}".show();"/>
+		<p:dialog header="pares" widgetVar="dlg1" minHeight="40">
+		<h:outputText value="é para ter pares"></h:outputText>
+		</p:dialog>
+		
+		</h:column>
+</body>
+</html>
